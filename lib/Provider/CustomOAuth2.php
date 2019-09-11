@@ -50,7 +50,7 @@ class CustomOAuth2 extends OAuth2
         }
 
         $groups = $this->getGroups($data);
-        if (is_array($groups)) {
+        if (isset($groups) && is_array($groups)) {
             $userProfile->data['groups'] = $groups;
         }
         if ($groupMapping = $this->config->get('group_mapping')) {
