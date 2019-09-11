@@ -370,7 +370,7 @@ class LoginController extends Controller
             # - null, when there is no information on groups the user is a member of
             # - empty array, which means the user explicitly is not a member of any groups
             # - a non-empty array, listing the groups the user is a member of
-            if (is_array($profile->data['groups'])) {
+            if (isset($profile->data['groups']) && is_array($profile->data['groups'])) {
                 $groupNames = $profile->data['groups'];
                 $groupMapping = isset($profile->data['group_mapping']) ? $profile->data['group_mapping'] : null;
                 $userGroups = $this->groupManager->getUserGroups($user);
